@@ -29,7 +29,8 @@ export default function Post( {post}: PostProps){
                     <time>{post.updatedAt}</time>
                     <div 
                         className={styles.postContent}
-                        dangerouslySetInnerHTML={{ __html: post.content}} />
+                        dangerouslySetInnerHTML={{ __html: post.content}} 
+                    />
 
                 </article>
             </main>
@@ -43,7 +44,7 @@ export const getServerSideProps:GetServerSideProps = async ({ req, params }) => 
 
     console.log(session)
 
-    if(!session.activeSubscription) {
+    if(!session?.activeSubscription) {
         return {
             redirect: {
                 destination: '/',
